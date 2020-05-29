@@ -1,5 +1,5 @@
 # Libreria BdStepper
-## Rotazione di un motore passo passo di tipo 288BYJ-48
+## Rotazione di un motore passo passo di tipo 28BYJ-48
 
 ### 1. Schema
 Per il circuito ho seguito questo schema, uitlizzando il driver ULN2003
