@@ -15,4 +15,4 @@ Contrast pin (V0)in LCD display with chip HD44780 depends on received voltage an
 
 ### Stepper motor 28BYJ-48
 - This kinkd of motor won't working with insufficient voltage. If I need to provide current by battery, that must be completely charged.
-- 
+- For half-step driving the maximum delay time between steps is 1 ms, 2 ms for full-step mode
