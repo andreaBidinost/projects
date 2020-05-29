@@ -1,11 +1,11 @@
 # Lego 2 Axis Machine
 ## Moving a 2 axis machine with Arduino and I2C
 ![Lego 2 Axis Machine photo ](./img1.jpg)
-![Lego 2 Axis Machine video ](https://www.youtube.com/watch?v=OcLfV5zg7JQ)
+Video can be found [here](https://www.youtube.com/watch?v=OcLfV5zg7JQ)
 
 ### 1. Scheme
-This is the circuit scheme
-![Lego 2 Axis Machine Scheme](./Lego 2 Axis Machine.jpg)
+This is the circuit scheme (see also [fritzing file](./Lego%202%20Axis%20Machine.fzz))
+![Lego 2 Axis Machine Scheme](./Lego%202%20Axis%20Machine.jpg)
 
 ### 2. Libraries
 In this project I used these libraries
