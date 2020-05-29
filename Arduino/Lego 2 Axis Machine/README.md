@@ -5,7 +5,7 @@ Video can be found [here](https://www.youtube.com/watch?v=OcLfV5zg7JQ)
 
 ### 1. Scheme
 This is the circuit scheme
-![Lego 2 Axis Machine Scheme]("./Lego 2 Axis Machine.jpg")
+![Lego 2 Axis Machine Scheme](./Lego%202%20Axis%20Machine.jpg)
 
 ### 2. Libraries
 In this project I used these libraries
