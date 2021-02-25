@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="dice.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  
+  <body>
+    <h1>Select a dice, distribution and then roll!</h1>
+    
+    <button type="button" class="diceButton" id="d4" sides="4"></button>
+    <button type="button" class="diceButton selectedDice" id="d6" sides="6" selected></button>
+    <button type="button" class="diceButton" id="d8" sides="8"></button>
+    <button type="button" class="diceButton" id="d20" sides="20"></button>
+    <br>
+    <select id="distribution">
+      <option value="uniform">Uniform</option>
+      <option value="gauss">Gaussian</option>
+      <option value="gaussInv">Inveretd Gaussian</option>
+    </select>
+    <br>
+    <button type="button" id="roll">Roll!</button>
+    
+    <div id="result"></div>
+    
+	<script src="dice.js"></script>
+	
+  </body>
+  
+</html>

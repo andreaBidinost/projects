@@ -1,0 +1,60 @@
+.diceButton{
+  width:100px;
+  height:100px;
+}
+
+#d4{
+  background-image:url('https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/9defc435df167716f6379fd09b54f937/large.png');;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#d6{
+  background-image:url('http://atlas-content-cdn.pixelsquid.com/stock-images/dice-B5mdRR0-600.jpg');;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#d8{
+  background-image:url('https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/be7d2675fb4c25eaf3e291009145b335/large.png');;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#d20{
+  background-image:url('https://banner2.cleanpng.com/20180816/rke/kisspng-dice-game-d2-system-koplow-55-mm-countdown-d2-di-koplow-countdown-d2-55mm-red-lorien-eesti-5b752ac20370e2.2196058615344053140141.jpg');;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#roll{
+  margin-top:20px;
+  width:100px;
+  height:100px;
+  font-size:2em;
+}
+
+
+#result{
+  width:100px;
+  height:100px;
+  border:1px solid black;
+  background-color:orange;
+  color:black;
+  font-size: 5em;
+  text-align:center;
+  margin-top: 20px;
+}
+
+.selectedDice{
+  border:4px solid orange;
+  width: 150px;
+  height: 150px;
+  margin: 0 5px;
+}
+
+select{
+  background-color:orange;
+  margin-top:20px;
+  font-size:1.5em;
+}
