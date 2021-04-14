@@ -26,7 +26,7 @@ Stepper motors are directly linked to machine axis (Lego sticks).
 I followed [this tutorial](https://www.youtube.com/watch?v=MFkKXEf306Q&t=7s) to understand how to build a worm gear nut.
 Terminal tip (pen, laser, drill bit) is simulated by a lego stick.
 
-### 5. How it works
+### 5. How does it works
 1. Wait for the "Zero Machine" phase that put the terminal tip at (0, 0) position
 2. Setup the destination coordinates between the range [0;5]x[0;5] (cm)
 3. Wait for the tip positioning and go back to previous point
