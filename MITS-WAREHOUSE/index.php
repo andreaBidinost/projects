@@ -10,7 +10,7 @@ if (isset($_SESSION["user"]) && $_SESSION["user"]){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>MITS-WAREHOUSE Login</title>
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -30,6 +30,7 @@ if (isset($_SESSION["user"]) && $_SESSION["user"]){
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/constants.js"> </script> 
   <script src="./js/index.js"> </script>
 </body>
 </html>

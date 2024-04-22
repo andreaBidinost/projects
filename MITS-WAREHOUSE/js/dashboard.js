@@ -6,7 +6,7 @@ $(document).ready(()=>{
 })
 
 function logout(){
-    $.get("/server/sessionQuit.php")
+    $.get(URL_QUITSESSION)
     window.location.href="index.php"
 }
 

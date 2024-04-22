@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    /* La prima riga si adatta al contenuto, la seconda occupa tutto lo spazio rimanente */
+    min-height: 100vh;
+    /* Altezza minima della pagina per occupare l'intero viewport */
+}
+
+header {
+    background-color: #007bff;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 20fr 3fr;
+}
+
+header button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.back-and-container {
+    display: grid;
+    grid-template-columns: 1fr 20fr;
+}
+
+.back-button {
+    background-color: #6c757d;
+    /* Colore di sfondo */
+    color: #fff;
+    /* Colore del testo */
+    border: none;
+    /* Nessun bordo */
+    border-radius: 0;
+    /* Angoli non arrotondati */
+    font-size: 16px;
+    /* Dimensione del testo */
+    cursor: pointer;
+    /* Cambio del cursore al passaggio del mouse */
+}
+
+main {
+    width: 75vw;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+form {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.required-symbol {
+    color: red;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="file"] {
+    width: auto;
+}
+
+.submit {
+    position: absolute;
+    bottom: 20px;
+    /* Distanza dal fondo della pagina */
+    left: 52%;
+    /* Posizionamento al centro della pagina */
+    transform: translateX(-50%);
+    /* Per centrare il pulsante orizzontalmente */
+    width: 75%;
+    /* Larghezza del 75% della finestra */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+
+/* Media queries per tablet */
+@media (max-width: 900px) {
+    main {
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    form {
+        grid-gap: 10px;
+    }
+}
+
+/* Media queries per smartphone */
+@media (max-width: 480px) {
+    main {
+        margin: 5px auto;
+        padding: 5px;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        padding: 8px;
+    }
+
+    .submit {
+        padding: 8px 16px;
+    }
+}

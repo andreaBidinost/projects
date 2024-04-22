@@ -7,9 +7,14 @@ $(document).ready(function() {
       var password = $('#password').val();
   
       // Send a POST request to the PHP file
-      $.post('server/loginFake.php', { username: username, password: password }, function(response) {
+      $.post(URL_LOGIN, { username: username, password: password }, function(response) {
         // Handle the response from the PHP file
-        window.location.href="dashboard.php"
+        r = JSON.parse(response)
+        if(r.success){
+          window.location.href="dashboard.php"
+        }else{
+          alert("Username o password non validi")
+        }
         // You can perform actions based on the response here
       });
     });
