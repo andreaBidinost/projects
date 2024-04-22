@@ -13,6 +13,7 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.bmp">
     <title>Inserimento Dati</title>
     <link rel="stylesheet" href="css/newProduct.css">
 </head>
@@ -29,7 +30,7 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                 <label for="product-name">Nome del Prodotto <span class="required-symbol">*</span></label>
                 <input type="text" id="product-name" name="product-name" required>
 
-                <label for="photo">Foto</label>
+                <label for="photo">Carica una o più foto</label>
                 <input type="file" id="photo" name="photo">
 
                 <label for="demo-link">Link Dimostrativo</label>
@@ -46,12 +47,12 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                 </select>
 
                 <label for="available">Disponibile per il prestito <span class="required-symbol">*</span></label>
-                        <select id="available" name="available" required>
-                            <option value="si">SI</option>
-                            <option value="no">NO</option>
-                        </select>
+                <select id="available" name="available" required>
+                    <option value="si">SI</option>
+                    <option value="no">NO</option>
+                </select>
 
-                        <button class="submit" type="button">Conferma</button>
+                <button class="submit" type="button">Conferma</button>
             </form>
         </main>
     </div>

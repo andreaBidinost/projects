@@ -1,4 +1,5 @@
 $(document).ready(()=>{
+    allowMultipleImageUpload()
     populateResponsibles()
 
     $("#goBackBtn").click(prevoiusPage)    
@@ -6,6 +7,11 @@ $(document).ready(()=>{
     $(".submit").click(submitData)
 })
 
+
+function allowMultipleImageUpload(){
+
+  $("#photo").attr('multiple',true);
+}
 function populateResponsibles() {
     $.get(URL_GET_LOAN_RESPONSIBLES, function(data) {
       // Parse the response as JSON
