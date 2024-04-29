@@ -21,12 +21,13 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 <body>
     <header>
         <span>Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["user"] ?></span>
+        <input style="display:none" type="file" id="csv-file" accept=".csv">
         <button id="csv-upload">Carica CSV</button>
     </header>
     <div class="back-and-container">
         <button id="goBackBtn" class="back-button">&lt;&lt;</button>
         <main>
-            <form action="cioccolatini.php" method="POST" enctype="multipart/form-data">
+            <form>
                 <label for="product-name">Nome del Prodotto <span class="required-symbol">*</span></label>
                 <input type="text" id="product-name" name="product-name" required>
 
@@ -54,10 +55,22 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 
                 <button class="submit" type="button">Conferma</button>
             </form>
+            <!-- Aggiungi la modal -->
+            <div id="qrModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="qrCode"></div>
+                    <div id="productCode"></div>
+                    <div id="download-container">
+                        <a id="download-link" download><button>Scarica Foto</button></a>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/constants.js"> </script>
+    <script src="./js/libraries/qrcode.min.js"></script>
     <script src="./js/newProduct.js"> </script>
 </body>
 
