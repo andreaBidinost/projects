@@ -4,9 +4,14 @@ $(document).ready(() => {
 
   $("#goBackBtn").click(prevoiusPage)
 
+  $("#available-loan").change(changeLoanAvailability)
+
   $(".submit").click(submitData)
 })
 
+function changeLoanAvailability(){
+  $("#available-loan").val() == "SI" ? $(".loanDetails").show() : $(".loanDetails").hide()
+}
 
 function allowMultipleImageUpload() {
 
@@ -29,22 +34,38 @@ function populateResponsibles() {
 
 function submitData() {
   var productName = $('#product-name').val();
+  var quantity = $("#quantity").val();
   var photos = $('#photo').prop('files');
   var demoLink = $('#demo-link').val();
   var notes = $('#notes').val();
   var responsible = $('#responsible').val();
-  var available = $('#available').val();
+  var available_loan = $('#available-loan').val();
+  
+  var notes_loan_go = $('#notes-loan-go').val();
+  var notes_loan_back = $('#notes-loan-back').val();
+  var photo_loan_back = $('#photo-loan-back').val();
+
+  
 
   // Create FormData object and append input values
   var formData = new FormData();
-  formData.append('product-name', productName);
+  formData.append('product-name', productName);  
+  formData.append('quantity', quantity)
   formData.append('demo-link', demoLink);
   formData.append('notes', notes);
   formData.append('responsible', responsible);
-  formData.append('available', available);
+  formData.append('available-loan', available_loan);
+  
+  formData.append('notes-loan-go', notes_loan_go);
+  
+  formData.append('notes-loan-back', notes_loan_back);
 
   for (var i = 0; i < photos.length; i++) {
     formData.append('photos[]', photos[i]); // Usa 'photo[]' per gestire più file
+  }
+
+  for (var i = 0; i < photo_loan_back.length; i++) {
+    formData.append('photos-loan-back[]', photo_loan_back[i]); // Usa 'photo[]' per gestire più file
   }
 
   $.ajax({
@@ -56,7 +77,6 @@ function submitData() {
     success: function (response) {
       response = JSON.parse(response);
       openModal(response.pCode, response.description);
-
     },
     error: function (xhr, status, error) {
       console.log(error)

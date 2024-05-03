@@ -83,24 +83,60 @@ body {
 }
 
 /* Colori diversi per ciascun bottone */
-.button:nth-child(1) {
-  background-color: #007bff;
+.square-dashboard:nth-child(1) {
+  background-color: #EF8D24;
   /* Blu */
 }
 
-.button:nth-child(2) {
+.square-dashboard:nth-child(2) {
+  background-color: #4d72a9;
+  /* Blu oltremare */
+}
+
+.square-dashboard:nth-child(3) {
+  background-color: #789a1b;
+}
+
+.square-dashboard:nth-child(4) {
+  background-color: #ffcc00;
+  /* Blu acciaio chiaro */
+}
+
+.square-warehouse:nth-child(1) {
+  background-color: #4d72a9;
+  /* Blu */
+}
+
+.square-warehouse:nth-child(2) {
   background-color: #1e90ff;
   /* Blu oltremare */
 }
 
-.button:nth-child(3) {
+.square-warehouse:nth-child(3) {
   background-color: #4682b4;
-  /* Blu acciaio */
 }
 
-.button:nth-child(4) {
+.square-warehouse:nth-child(4) {
   background-color: #6495ed;
   /* Blu acciaio chiaro */
+}
+
+.square-loan:nth-child(1) {
+  background-color: #EF8D24;
+  /* Blu */
+}
+
+.square-loan:nth-child(2) {
+  background-color: #fFCC66;
+  /* Blu oltremare */
+}
+
+.square-loan:nth-child(3) {
+  background-color: #ffb500;
+}
+
+.square-loan:nth-child(4) {
+  background-color: #a94d15;
 }
 
 /* Media queries for tablet and smartphone */

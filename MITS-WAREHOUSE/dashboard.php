@@ -21,24 +21,24 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 <body>
     <div class="welcome">Benvenut<?php echo $_SESSION["gender"].' '.$_SESSION["user"]  ?></div>
     <div class="container">
-        <button id="loanBtn" class="button">
+        <button id="loanBtn" class="button square-dashboard">
             <img src="img/loan.png" alt="Logo 1" class="logo">
             <span>Prestiti</span>
             <span class="button-description">Gestisci i prestiti del materiale con gli utenti del MITS</span>
         </button>
-        <button id="warehouseBtn" class="button">
+        <button id="warehouseBtn" class="button square-dashboard">
             <img src="img/warehouse.png" alt="Logo 2" class="logo">
             <span>Magazzino</span>
             <span class="button-description">Aggiungi, rimuovi e visualizza i prodotti del magazzino MITS</span>
 
         </button>
-        <button id="clientBtn" class="button">
+        <button id="clientBtn" class="button square-dashboard">
             <img src="img/clients.png" alt="Logo 3" class="logo">
             <span>Utenti</span>
-            <span class="button-description">Aggiungi, rimuovi e visualizza le operazioni degli utenti MITS</span>
+            <span class="button-description" >Aggiungi, rimuovi e visualizza le operazioni degli utenti MITS</span>
 
         </button>
-        <button id="quitBtn" class="button">
+        <button id="quitBtn" class="button square-dashboard">
             <img src="img/esci.png" alt="Logo 4" class="logo">
             <span>Esci</span>
             <span class="button-description">Esci dal profilo attuale</span>

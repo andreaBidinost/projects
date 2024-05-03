@@ -15,7 +15,7 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/img/favicon.bmp">
     <title>Inserimento Dati</title>
-    <link rel="stylesheet" href="css/newProduct.css">
+    <link rel="stylesheet" href="css/dataEntry.css">
 </head>
 
 <body>
@@ -30,6 +30,9 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
             <form>
                 <label for="product-name">Nome del Prodotto <span class="required-symbol">*</span></label>
                 <input type="text" id="product-name" name="product-name" required>
+
+                <label for="quantity">Quantità in ingresso:</label>
+                <input type="number" id="quantity" value="1" min="1">
 
                 <label for="photo">Carica una o più foto</label>
                 <input type="file" id="photo" name="photo">
@@ -47,11 +50,21 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                     <!-- Aggiungi altre opzioni se necessario -->
                 </select>
 
-                <label for="available">Disponibile per il prestito <span class="required-symbol">*</span></label>
-                <select id="available" name="available" required>
-                    <option value="si">SI</option>
-                    <option value="no">NO</option>
+                <label for="available-loan">Disponibile per il prestito <span class="required-symbol">*</span></label>
+                <select id="available-loan" name="available" required>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
                 </select>
+
+                    <label class="loanDetails" for="notes-loan-go">Note per il destinatario prestito</label>
+                    <textarea class="loanDetails" id="notes-loan-go" name="notes"></textarea>
+
+                    <label class="loanDetails" for="notes-loan-back">Note per chi gestisce la restituzione</label>
+                    <textarea class="loanDetails" id="notes-loan-back" name="notes"></textarea>
+
+                    <label class="loanDetails" for="photo-loan-back">Immagini di dettaglio per la consegna</label>
+                    <input class="loanDetails" type="file" id="photo-loan-back" name="photo">
+               
 
                 <button class="submit" type="button">Conferma</button>
             </form>

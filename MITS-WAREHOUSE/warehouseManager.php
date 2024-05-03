@@ -23,24 +23,24 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
     <div class="back-and-container">
         <button id="goBackBtn" class="back-button">&lt;&lt;</button>
         <div class="container">
-            <button id="newBtn" class="button">
+            <button id="newBtn" class="button square-warehouse">
                 <img src="img/ware-newProduct.png" alt="Logo 1" class="logo">
                 <span>Nuovo Prodotto</span>
                 <span class="button-description">Aggiungi un prodotto non presente nel magazzino MITS</span>
             </button>
-            <button id="uploadBtn" class="button">
+            <button id="uploadBtn" class="button square-warehouse">
                 <img src="img/ware-upload.png" alt="Logo 2" class="logo">
                 <span>Carica</span>
                 <span class="button-description">Aggiungi i nuovi arrivi dei prodotti già presenti nel magazzino
                     MITS</span>
             </button>
-            <button id="downloadBtn" class="button">
+            <button id="downloadBtn" class="button square-warehouse">
                 <img src="img/ware-download.png" alt="Logo 3" class="logo">
                 <span>Scarica</span>
                 <span class="button-description">Rimuovi prodotti già presenti nel magazzino MITS</span>
 
             </button>
-            <button id="viewBtn" class="button">
+            <button id="viewBtn" class="button square-warehouse">
                 <img src="img/ware-view.png" alt="Logo 4" class="logo">
                 <span>Visualizza</span>
                 <span class="button-description">Visualizza e ricerca i prodotti del magazzino MITS</span>
