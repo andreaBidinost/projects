@@ -25,17 +25,22 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
         <button id="goBackBtn" class="back-button">&lt;&lt;</button>
         <main>
             <label>Seleziona il prodotto:</label>
-            <div class="productSelectionMode">
-                <button id="prSelByQr" type="button">Carica una foto</button>                
-                <button id="prSelByQr" type="button">Cerca con codice</button>                
-                <button id="prSelByQr" type="button">Cerca con nome</button>
+            <div id="productSelectionMode">
+                <button id="prSelByQr" type="button">Carica una foto</button>
+                <button id="prSelByCode" type="button">Cerca con codice</button>
+                <button id="prSelByName" type="button">Cerca con nome</button>
             </div>
-            <div class="productSelectionBox">
-                <div class="selectByQrBox"></div>                
-                <div class="selectByCodeBox"></div>                
-                <div class="selectByNameBox"></div>
+            <div id="productSelectionBox">
+                <div id="selectByQrBox">
+                    <div id="qrreader"></div>
+                </div>
+                <div id="selectByCodeBox"></div>
+                <div id="selectByNameBox"></div>
             </div>
             <form>
+                <label for="product">Prodotto seleizonato:</label>
+                <input type="text" id="product" disabled>
+                
                 <label for="quantity">Quantità prestata:</label>
                 <input type="number" id="quantity" value="1" min="1">
 
@@ -56,7 +61,7 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
         </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+    <script src="./js/libraries/qrcode-scan.min.js"></script>
     <script src="./js/constants.js"> </script>
     <script src="./js/newLoan.js"> </script>
 </body>

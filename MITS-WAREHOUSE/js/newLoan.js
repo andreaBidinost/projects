@@ -1,10 +1,55 @@
+html5QrcodeScanner = new Html5QrcodeScanner(
+	"qrreader", { fps: 10, qrbox: 0 })
+
 $(document).ready(() => {
     $("#goBackBtn").click(prevoiusPage)
+
+    $("#prSelByQr").click(openQrSection)
+    $("#prSelByCode").click(openCodeSelection)
+    $("#prSelByName").click(openNameSection)
 
     setActualDate()
     loadUsers()
     loadResponsibles()
+
+
 })
+
+function openCodeSelection(){
+    $("#productSelectionBox div").hide()
+    html5QrcodeScanner.clear();
+    $("#productSelectionBox").show()
+    $("#selectByCodeBox").show()
+    //TODO
+}
+
+function openNameSection(){
+    $("#productSelectionBox div").hide()    
+    html5QrcodeScanner.clear();
+    $("#productSelectionBox").show()
+    $("#selectByNameBox").show()
+    //TODO
+}
+
+function openQrSection(){
+    $("#productSelectionBox div").hide()
+    $("#productSelectionBox").show()
+    $("#selectByQrBox").show()
+
+    var boxWidth = $("#selectByQrBox").width()
+    var boxHeight = $("#selectByQrBox").height()
+
+    html5QrcodeScanner = new Html5QrcodeScanner(
+        "qrreader", { fps: 10, qrbox: { width: boxWidth, height: boxHeight } });
+    
+    html5QrcodeScanner.render(onScanSuccess);
+}
+
+function onScanSuccess(decodedText, decodedResult) {
+    // Handle on success condition with the decoded text or result.
+    alert(`Scan result: ${decodedText}`, decodedResult);
+    html5QrcodeScanner.clear();
+}
 
 function setActualDate(){
     const today = new Date();
