@@ -116,7 +116,7 @@ async function openModal(productCode, description) {
 
 // Chiudi la modal alla pressione del pulsante di chiusura o cliccando al di fuori di essa
 $(window).click(function (event) {
-  if (event.target == $('#qrModal')) {
+  if (event.target.id == 'qrModal') {
     $('#qrModal').hide()
   }
 });

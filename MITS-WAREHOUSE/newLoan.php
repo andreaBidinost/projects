@@ -30,17 +30,15 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                 <button id="prSelByCode" type="button">Cerca con codice</button>
                 <button id="prSelByName" type="button">Cerca con nome</button>
             </div>
-            <div id="productSelectionBox">
-                <div id="selectByQrBox">
-                    <div id="qrreader"></div>
-                </div>
-                <div id="selectByCodeBox"></div>
-                <div id="selectByNameBox"></div>
-            </div>
             <form>
-                <label for="product">Prodotto seleizonato:</label>
-                <input type="text" id="product" disabled>
-                
+                <label >Prodotto seleizonato:</label>
+
+                <div class="selProductInfo">
+                    <input type="hidden" id="selProductId" disabled>
+                    <input type="text" id="selProductCode" disabled>
+                    <input type="text" id="selProductDesc" disabled>
+                </div>
+
                 <label for="quantity">Quantità prestata:</label>
                 <input type="number" id="quantity" value="1" min="1">
 
@@ -58,6 +56,25 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 
                 <button class="submit" onclick="saveLoan()">Salva Prestito</button>
             </form>
+
+            <!-- Aggiungi la modal -->
+            <div id="productModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="selectByQrBox" class="productSelectionBox">
+                        <div id="qrreader"></div>
+                    </div>
+                    <div id="selectByCodeBox" class="productSelectionBox">
+                        <input type="text" id="selPCode" placeholder="Inserisci il codice del prodotto">
+                        <button type="button" id="confirmSelByCode">Conferma</button>
+                    </div>
+                    <div id="selectByNameBox" class="productSelectionBox">
+                        <input type="text"  id="selPName" placeholder="Inserisci delle parole per descrivere il prodotto">
+                        <button type="button" id="confirmSelByName">Cerca</button>
+                        <div id="selByNameResult"></div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

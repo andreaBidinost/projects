@@ -1,12 +1,14 @@
 html5QrcodeScanner = new Html5QrcodeScanner(
-	"qrreader", { fps: 10, qrbox: 0 })
+    "qrreader", { fps: 10, qrbox: 0 })
 
 $(document).ready(() => {
     $("#goBackBtn").click(prevoiusPage)
 
-    $("#prSelByQr").click(openQrSection)
-    $("#prSelByCode").click(openCodeSelection)
-    $("#prSelByName").click(openNameSection)
+    $("#prSelByQr").click(()=>{openModal("qr")})
+    $("#prSelByCode").click(()=>{openModal("code")})
+    $("#prSelByName").click(()=>{openModal("name")})
+
+    $("#confirmSelByCode").click(confirmSelByCode)
 
     setActualDate()
     loadUsers()
@@ -15,43 +17,42 @@ $(document).ready(() => {
 
 })
 
-function openCodeSelection(){
-    $("#productSelectionBox div").hide()
-    html5QrcodeScanner.clear();
-    $("#productSelectionBox").show()
-    $("#selectByCodeBox").show()
-    //TODO
+function findDescriptionFromCode(newCode){
+    $.get(FROM_CODE_TO_DESCRIPTION_URL,
+        {
+            code:newCode
+        },
+        (response)=>{
+            response = JSON.parse(response)
+            if(response.success == true){
+                
+                $("#selProductId").val(response.id)
+                $("#selProductCode").val(response.pCode)
+                $("#selProductDesc").val(response.description)
+            }else{
+                alert("Nessun prodotto associato a questo codice " + newCode)
+            }
+        }
+    )
 }
 
-function openNameSection(){
-    $("#productSelectionBox div").hide()    
-    html5QrcodeScanner.clear();
-    $("#productSelectionBox").show()
-    $("#selectByNameBox").show()
-    //TODO
-}
+function confirmSelByCode(){
 
-function openQrSection(){
-    $("#productSelectionBox div").hide()
-    $("#productSelectionBox").show()
-    $("#selectByQrBox").show()
-
-    var boxWidth = $("#selectByQrBox").width()
-    var boxHeight = $("#selectByQrBox").height()
-
-    html5QrcodeScanner = new Html5QrcodeScanner(
-        "qrreader", { fps: 10, qrbox: { width: boxWidth, height: boxHeight } });
-    
-    html5QrcodeScanner.render(onScanSuccess);
+    if($("#selPCode").val() && $("#selPCode").val()!=""){
+        findDescriptionFromCode($("#selPCode").val())
+        $('#productModal').hide()
+    }
 }
 
 function onScanSuccess(decodedText, decodedResult) {
     // Handle on success condition with the decoded text or result.
-    alert(`Scan result: ${decodedText}`, decodedResult);
-    html5QrcodeScanner.clear();
+    
+    findDescriptionFromCode(decodedText)
+    html5QrcodeScanner.clear()
+    $('#productModal').hide()
 }
 
-function setActualDate(){
+function setActualDate() {
     const today = new Date();
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
@@ -76,15 +77,15 @@ function loadUsers() {
         url: URL_GET_ALL_USERS,
         method: "GET",
         dataType: "json",
-        success: function(users) {
+        success: function (users) {
             // Aggiungi gli utenti alla dropdown
             var userDropdown = $("#borrower");
             userDropdown.empty();
-            $.each(users, function(index, user) {
+            $.each(users, function (index, user) {
                 userDropdown.append($("<option>").val(user.id).text(user.name));
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             // Gestione degli errori
             console.error("Errore durante il recupero degli utenti:", error);
         }
@@ -97,17 +98,70 @@ function loadResponsibles() {
         url: URL_GET_RESPONSIBLES,
         method: "GET",
         dataType: "json",
-        success: function(responsibles) {
+        success: function (responsibles) {
             // Aggiungi i responsabili alla dropdown
             var responsibleDropdown = $("#responsible");
             responsibleDropdown.empty();
-            $.each(responsibles, function(index, responsible) {
+            $.each(responsibles, function (index, responsible) {
                 responsibleDropdown.append($("<option>").val(responsible.id).text(responsible.name));
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             // Gestione degli errori
             console.error("Errore durante il recupero dei responsabili:", error);
         }
     });
 }
+
+function openModal(productEntryKind) {
+
+    $('.productSelectionBox').hide()
+
+    switch(productEntryKind){
+        case "qr":{
+            prepareModalForQr()
+            break;
+        }
+        case "code":{
+            prepareModalForCode()
+            break;
+        }
+        case "name":{
+            prepareModalForName()
+            break;
+        }
+    }
+
+    $('#productModal').show()
+}
+
+function prepareModalForQr(){
+    $("#selectByQrBox").show()
+    var boxWidth = parseInt($(".modal-content").width()/3)
+
+    html5QrcodeScanner = new Html5QrcodeScanner(
+        "qrreader", { fps: 10, qrbox: { width: 250, height:250} });
+
+    html5QrcodeScanner.render(onScanSuccess);
+}
+
+function prepareModalForCode(){
+    $("#selectByCodeBox").show()
+}
+
+function prepareModalForName(){
+    
+}
+
+// Chiudi la modal alla pressione del pulsante di chiusura o cliccando al di fuori di essa
+$(window).click(function (event) {
+    if (event.target.id == 'productModal') {
+        $('#productModal').hide()
+        html5QrcodeScanner.clear(); 
+    }
+});
+
+$('.close').click(function () {
+    $('#productModal').hide()
+    html5QrcodeScanner.clear();
+});

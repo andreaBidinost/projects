@@ -54,12 +54,12 @@ main {
 
 #productSelectionMode {
     width: 100%;
-    height: 10vh;
+    height: 6vh;
     text-align: center;
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
-    margin-top:2px;     
+    flex-wrap: wrap;
+    margin-top: 2px;
 }
 
 #productSelectionMode button {
@@ -69,27 +69,45 @@ main {
     cursor: pointer;
     color: #fff;
     padding: 10px 20px;
-    flex:1;
-    margin-left:5px;
+    flex: 1;
+    margin-left: 5px;
 }
 
-#productSelectionBox{
-    display:none;
+.productSelectionBox {
+    display: none;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
 }
 
-#productSelectionBox div{
-    display:none;
+.productSelectionBox > input{
+    width:95%;
+    margin:1%;
 }
 
-#qrreader{
-    width:100%;
-    height:40%;
+.productSelectionBox > button{
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 20px;
+    width:98%;
+    margin:1%;
+}
+
+#qrreader {
+    width: 50%;
+    margin-left: 25%;
+}
+
+#qrreader > * button{
+    background-color: #007bff;
 }
 
 form {
     display: grid;
     grid-gap: 20px;
-    padding-top:5px;
+    padding-top: 5px;
 }
 
 .required-symbol {
@@ -159,6 +177,16 @@ input[type="file"] {
     font-size: 2em;
 }
 
+.selProductInfo {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.selProductInfo input {
+    margin-left: 1%;
+    overflow-y:scroll;
+}
+
 #productCode {
     margin-top: 10px;
     padding: 10px;
@@ -187,6 +215,7 @@ input[type="file"] {
 #qrCode {
     margin-top: 15px;
 }
+
 
 /* Stili per tablet e smartphone */
 @media screen and (max-width: 768px) {
@@ -224,5 +253,14 @@ input[type="file"] {
 
     .submit {
         padding: 8px 16px;
+    }
+
+    #qrreader {
+        width: 75%;
+        margin-left: 12.5%;
+    }
+
+    .selProductInfo {
+        grid-template-columns: none;
     }
 }
