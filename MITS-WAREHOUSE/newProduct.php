@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
+if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
     echo "<script>alert('Sessione scaduta, autenticazione necessaria');</script>";
     header("Location: /index.php");
 }
@@ -20,7 +20,9 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 
 <body>
     <header>
-        <span>Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["user"] ?></span>
+            Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["userName"] ?>
+            <?php echo '<inpyt type="hidden" id="userId" value="' . $_SESSION["userId"] . '">' ?>
+        
         <input style="display:none" type="file" id="csv-file" accept=".csv">
         <button id="csv-upload">Carica CSV</button>
     </header>
@@ -56,15 +58,15 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                     <option value="NO">NO</option>
                 </select>
 
-                    <label class="loanDetails" for="notes-loan-go">Note per il destinatario prestito</label>
-                    <textarea class="loanDetails" id="notes-loan-go" name="notes"></textarea>
+                <label class="loanDetails" for="notes-loan-go">Note per il destinatario prestito</label>
+                <textarea class="loanDetails" id="notes-loan-go" name="notes"></textarea>
 
-                    <label class="loanDetails" for="notes-loan-back">Note per chi gestisce la restituzione</label>
-                    <textarea class="loanDetails" id="notes-loan-back" name="notes"></textarea>
+                <label class="loanDetails" for="notes-loan-back">Note per chi gestisce la restituzione</label>
+                <textarea class="loanDetails" id="notes-loan-back" name="notes"></textarea>
 
-                    <label class="loanDetails" for="photo-loan-back">Immagini di dettaglio per la consegna</label>
-                    <input class="loanDetails" type="file" id="photo-loan-back" name="photo">
-               
+                <label class="loanDetails" for="photo-loan-back">Immagini di dettaglio per la consegna</label>
+                <input class="loanDetails" type="file" id="photo-loan-back" name="photo">
+
 
                 <button class="submit" type="button">Conferma</button>
             </form>

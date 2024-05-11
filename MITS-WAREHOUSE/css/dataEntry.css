@@ -15,6 +15,7 @@ header {
     padding: 10px;
     display: grid;
     grid-template-columns: 20fr 3fr;
+    color:white;
 }
 
 header button {
@@ -275,5 +276,9 @@ input[type="file"] {
     }
     #qrCode img {
         margin-left: 20%;
+    }
+
+    #productSelectionMode button {
+        padding:0px;
     }
 }

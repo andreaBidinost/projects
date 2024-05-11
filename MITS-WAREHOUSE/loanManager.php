@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
+if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
     echo "<script>alert('Sessione scaduta, autenticazione necessaria');</script>";
     header("Location: /index.php");
 }
@@ -19,7 +19,10 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 </head>
 
 <body>
-    <div class="welcome">Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["user"] ?></div>
+    <div class="welcome">
+        Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["userName"] ?>
+        <?php echo '<inpyt type="hidden" id="userId" value="' . $_SESSION["userId"] . '">' ?></span>
+    </div>
     <div class="back-and-container">
         <button id="goBackBtn" class="back-button">&lt;&lt;</button>
         <div class="container">

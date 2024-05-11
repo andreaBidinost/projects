@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
+if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
     echo "<script>alert('Sessione scaduta, autenticazione necessaria');</script>";
     header("Location: /index.php");
 }
@@ -19,7 +19,9 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 
 <body>
     <header>
-        <span>Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["user"] ?></span>
+        <span>Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["userName"] ?></span>
+        <?php echo '<inpyt type="hidden" id="userId" value="' . $_SESSION["userId"] . '">' ?></span>
+
     </header>
     <div class="back-and-container">
         <button id="goBackBtn" class="back-button">&lt;&lt;</button>
@@ -31,7 +33,7 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                 <button id="prSelByName" type="button">Cerca con nome</button>
             </div>
             <form>
-                <label >Prodotto seleizonato:</label>
+                <label>Prodotto seleizonato:</label>
 
                 <div class="selProductInfo">
                     <input type="hidden" id="selProductId" disabled>
@@ -48,13 +50,14 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                 <label for="startDate">Data inizio prestito:</label>
                 <input type="date" id="startDate">
 
-                <label for="duration">Durata prevista (giorni):</label>
-                <input type="number" id="duration" value="1" min="1">
+                <label for="endDate">Data inizio prestito:</label>
+                <input type="date" id="endDate">
 
                 <label for="responsible">Responsabile:</label>
                 <select id="responsible"></select>
 
-                <button class="submit" onclick="saveLoan()">Salva Prestito</button>
+                <button class="submit" id="addObject">Aggiungi oggetto</button>
+                <button class="submit" id="saveNewLoan">Procedi</button>
             </form>
 
             <!-- Aggiungi la modal -->
@@ -69,9 +72,34 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
                         <button type="button" id="confirmSelByCode">Conferma</button>
                     </div>
                     <div id="selectByNameBox" class="productSelectionBox">
-                        <input type="text"  id="selPName" placeholder="Inserisci delle parole per descrivere il prodotto">
+                        <input type="text" id="selPName"
+                            placeholder="Inserisci delle parole per descrivere il prodotto">
                         <button type="button" id="confirmSelByName">Cerca</button>
                         <div id="selByNameResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="confirmLoanModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="waitingConfirmMsg" class="confirmMsg">
+                        Una mail è stata inviata all'indirizzo <span id="borrowerMail"></span> contenente un link per la
+                        conferma del prestito ed eventuali documenti per la presa in carico dei prodotti.
+                        <br>
+                        <b>La conferma non è ancora avvenuta. Tempo rimasto: <span id="confirmTimer"></span></b>.
+                        <br>
+                        Quando l'utente confermerà la presa in carico, questa pagina si aggiornerà automaticamente.
+                    </div>
+                    <div id="confirmMsgReceived" class="confirmMsg">
+                        <b>L'utente ha confermato la presa in carico dei prodotti.</b>
+                        <br>
+                        Si verrà automaticamente reindirizzati alla pagina dello storico dei prestiti.
+                    </div>
+                    <div id="confirmationFailureMsg" class="confirmMsg">
+                        <b>L'utente non ha confermato la presa in carico dei prodotti entro il tempo previsto, riprovare.</b>
+                        <br>
+                        Si verrà automaticamente reindirizzati alla pagina.
                     </div>
                 </div>
             </div>

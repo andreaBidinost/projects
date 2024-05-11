@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
+if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
     echo "<script>alert('Sessione scaduta, autenticazione necessaria');</script>";
     header("Location: /index.php");
 }
@@ -19,7 +19,10 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
 </head>
 
 <body>
-    <div class="welcome">Benvenut<?php echo $_SESSION["gender"].' '.$_SESSION["user"]  ?></div>
+    <div class="welcome">
+        Benvenut<?php echo $_SESSION["gender"] . ' ' . $_SESSION["userName"] ?>
+        <?php echo '<inpyt type="hidden" id="userId" value="' . $_SESSION["userId"] . '">' ?></span>
+    </div>
     <div class="container">
         <button id="loanBtn" class="button square-dashboard">
             <img src="img/loan.png" alt="Logo 1" class="logo">
@@ -35,7 +38,7 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
         <button id="clientBtn" class="button square-dashboard">
             <img src="img/clients.png" alt="Logo 3" class="logo">
             <span>Utenti</span>
-            <span class="button-description" >Aggiungi, rimuovi e visualizza le operazioni degli utenti MITS</span>
+            <span class="button-description">Aggiungi, rimuovi e visualizza le operazioni degli utenti MITS</span>
 
         </button>
         <button id="quitBtn" class="button square-dashboard">
@@ -44,9 +47,9 @@ if (!(isset($_SESSION["user"]) && $_SESSION["user"])) {
             <span class="button-description">Esci dal profilo attuale</span>
         </button>
     </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./js/constants.js"> </script> 
-  <script src="./js/dashboard.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/constants.js"> </script>
+    <script src="./js/dashboard.js"> </script>
 </body>
 
 </html>
