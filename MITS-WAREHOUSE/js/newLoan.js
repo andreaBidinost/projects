@@ -204,6 +204,8 @@ function addProductToLoanList() {
         startDate: $("#startDate").val(),
         endDate: $("#endDate").val()
     }
+
+    productList.push(newProduct)
 }
 
 function updateFieldsForNewObject() {
