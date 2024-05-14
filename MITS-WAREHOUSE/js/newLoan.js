@@ -233,11 +233,12 @@ function saveNewLoan() {
 }
 
 function proceedWithUserConfirmation(loanData) {
+    event.preventDefault()
     $.post(SEND_CONFIRM_LOAN_EMAIL,
         loanData,
         (response) => {
             response = JSON.parse(response)
-            if (response.status) {
+            if (response.status=="success") {
                 openConfirmLoanModal(response.borrowerMail, response.newLoanId)
             } else {
                 alert("Qualcosa è andato storto, riprova o contatta Bidinost")
@@ -255,7 +256,7 @@ function openConfirmLoanModal(mail, loanId) {
     $("#confirmLoanModal").show()
 
     startConfirmCountdown()
-    startConfirmationWatcher(loanId)
+    //startConfirmationWatcher(loanId)
 }
 
 function startConfirmCountdown() {

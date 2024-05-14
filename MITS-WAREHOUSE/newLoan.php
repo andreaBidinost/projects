@@ -84,22 +84,22 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <div id="waitingConfirmMsg" class="confirmMsg">
-                        Una mail è stata inviata all'indirizzo <span id="borrowerMail"></span> contenente un link per la
-                        conferma del prestito ed eventuali documenti per la presa in carico dei prodotti.
-                        <br>
-                        <b>La conferma non è ancora avvenuta. Tempo rimasto: <span id="confirmTimer"></span></b>.
-                        <br>
-                        Quando l'utente confermerà la presa in carico, questa pagina si aggiornerà automaticamente.
+                        <p>Una mail è stata inviata all'indirizzo <span id="borrowerMail"></span> contenente un link per la
+                        conferma del prestito ed eventuali documenti per la presa in carico dei prodotti.</p>
+                        
+                        <p><b>La conferma non è ancora avvenuta. Tempo rimasto: <span id="confirmTimer"></span></b>.</p>
+                        
+                        <p>Quando l'utente confermerà la presa in carico, questa pagina si aggiornerà automaticamente.</p>
                     </div>
                     <div id="confirmMsgReceived" class="confirmMsg">
-                        <b>L'utente ha confermato la presa in carico dei prodotti.</b>
-                        <br>
-                        Si verrà automaticamente reindirizzati alla pagina dello storico dei prestiti.
+                        <p><b>L'utente ha confermato la presa in carico dei prodotti.</b></p>
+                        <
+                        <p>Si verrà automaticamente reindirizzati alla pagina dello storico dei prestiti.</p>
                     </div>
                     <div id="confirmationFailureMsg" class="confirmMsg">
-                        <b>L'utente non ha confermato la presa in carico dei prodotti entro il tempo previsto, riprovare.</b>
-                        <br>
-                        Si verrà automaticamente reindirizzati alla pagina.
+                    <p><b>L'utente non ha confermato la presa in carico dei prodotti entro il tempo previsto, riprovare.</b></p>
+                        
+                        <p></p>Si verrà automaticamente reindirizzati alla pagina.</p>
                     </div>
                 </div>
             </div>

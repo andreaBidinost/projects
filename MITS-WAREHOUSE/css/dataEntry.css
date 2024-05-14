@@ -227,6 +227,11 @@ input[type="file"] {
     margin-left: 37%;
 }
 
+.confirmMsg{
+    text-align:center;
+    padding:2%;
+}
+
 
 /* Stili per tablet e smartphone */
 @media screen and (max-width: 768px) {
