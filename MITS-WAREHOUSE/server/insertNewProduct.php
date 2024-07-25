@@ -1,12 +1,11 @@
 <?php
 // Funzione per inserire i dati nel database e salvare le foto
 function insertData($productName, $demoLink, $notes, $responsibleId, $available, $photos) {
-    // Connessione al database
-    $servername = "localhost";
-    $username = "username";
-    $password = "password";
-    $dbname = "nome_database";
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    include 'dbCredentials.php';
+    $dbCredentials = 'dbCredentials';
+        
+    // Creare connessione
+    $conn = new mysqli($dbCredentials::SERVERNAME, $dbCredentials::USERNAME, $dbCredentials::PASSWORD, $dbCredentials::DBNAME);
 
     // Verifica della connessione
     if ($conn->connect_error) {

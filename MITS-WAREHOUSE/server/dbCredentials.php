@@ -1,9 +1,9 @@
 <?php
     class dbCredentials{
-        const SERVERNAME = 'bidimensional.it';
-        const USERNAME = 'bkccdhtc_MITS';
-        const PASSWORD = 'mits-warehouse';
-        const DBNAME = 'bkccdhtc_lto';
+        const SERVERNAME = 'localhost';
+        const USERNAME = 'root';
+        const PASSWORD = '';
+        const DBNAME = 'mitswarehouse';
     }
 
 ?>

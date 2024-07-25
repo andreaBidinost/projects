@@ -1,0 +1,6 @@
+<?php
+
+//--- ERROR CODES
+!defined('ERRNO_DBMS_LOGIN_FAILED') && define('ERRNO_DBMS_LOGIN_FAILED', 200);
+!defined('ERRNO_DBMS_LOGIN_PWD_NOT_FOUND') && define('ERRNO_DBMS_LOGIN_PWD_NOT_FOUND', 201);
+!defined('ERRNO_DBMS_NO_USER') && define('ERRNO_DBMS_NO_USER', 202);

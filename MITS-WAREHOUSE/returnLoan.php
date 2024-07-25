@@ -13,7 +13,7 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/img/favicon.bmp">
-    <title>Nuovo prestito</title>
+    <title>Storico prestiti</title>
     <link rel="stylesheet" href="css/dataEntry.css">
 </head>
 
@@ -32,7 +32,14 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
                 <button id="prSelByCode" type="button">Cerca con codice</button>
                 <button id="prSelByName" type="button">Cerca con nome</button>
             </div>
+            <div class="comeBackBrwSel">
+            <label for="borrower">Seleziona il destinatario:</label>
+            <select id="borrower"></select>
+            </div>
+            <hr>
             <form>
+                <div class="advice">Controlla nella nuova scheda lo stato del materiale</div>
+                <input type="hidden" id="loanId" disabled>
                 <label>Prodotto seleizonato:</label>
 
                 <div class="selProductInfo">
@@ -42,22 +49,18 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
                 </div>
 
                 <label for="quantity">Quantità prestata:</label>
-                <input type="number" id="quantity" value="1" min="1">
-
-                <label for="borrower">Utente:</label>
-                <select id="borrower"></select>
+                <input type="number" id="quantity" value="1" min="1">                
 
                 <label for="startDate">Data inizio prestito:</label>
                 <input type="date" id="startDate">
 
-                <label for="endDate">Data stimata fine prestito:</label>
+                <label for="endDate">Data inizio prestito:</label>
                 <input type="date" id="endDate">
 
                 <label for="responsible">Responsabile:</label>
-                <select id="responsible"></select>
+                <input type="text" id="responsible">
 
-                <button class="submit" id="addObject">Aggiungi oggetto</button>
-                <button class="submit" id="saveNewLoan">Procedi</button>
+                <button class="submit" id="confirmComeBack">Conferma restituzione</button>
             </form>
 
             <!-- Aggiungi la modal -->
@@ -83,33 +86,20 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
             <div id="confirmLoanModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <div id="waitingConfirmMsg" class="confirmMsg">
-                        <p>Una mail è stata inviata all'indirizzo <span id="borrowerMail"></span> contenente un link per
-                            la
-                            conferma del prestito ed eventuali documenti per la presa in carico dei prodotti.</p>
-
-                        <p><b>La conferma non è ancora avvenuta. Tempo rimasto: <span id="confirmTimer"></span></b>.</p>
-
-                        <p>Quando l'utente confermerà la presa in carico, questa pagina si aggiornerà automaticamente.
-                        </p>
-                    </div>
-                    <div id="confirmMsgReceived" class="confirmMsg">
-                        <p><b>L'utente ha confermato la presa in carico dei prodotti.</b></p>
-                        <p>Si verrà automaticamente reindirizzati alla pagina dello storico dei prestiti.</p>
-                    </div>
-                    <div id="confirmationFailureMsg" class="confirmMsg">
-                        <p><b>L'utente non ha confermato la presa in carico dei prodotti entro il tempo previsto,
-                                riprovare.</b></p>
-
-                        <p></p>Si verrà automaticamente reindirizzati alla pagina.</p>
+                    <div id="comeBackmsg" class="confirmMsg">
+                        <p><b>Il prestito è stato chiuso</b></p>
+                        <p>Si verrà reindirizzati alla pagina di gestione prestiti</p>
                     </div>
                 </div>
             </div>
+
+            <div id="loadingWheelArea" class="modal">
+                <div id="loadingSpinner" class="spinner"></div>
+            </div>
         </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     <script src="./js/libraries/qrcode-scan.min.js"></script>
     <script src="./js/constants.js"> </script>
-    <script src="./js/spinner.js"> </script>
-    <script src="./js/newLoan.js"> </script>
+    <script src="./js/returnLoan.js"> </script>
 </body>

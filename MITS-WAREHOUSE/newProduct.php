@@ -14,7 +14,7 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/img/favicon.bmp">
-    <title>Inserimento Dati</title>
+    <title>Dati nuovo prodotto</title>
     <link rel="stylesheet" href="css/dataEntry.css">
 </head>
 
@@ -58,14 +58,9 @@ if (!(isset($_SESSION["userId"]) && $_SESSION["userId"])) {
                     <option value="NO">NO</option>
                 </select>
 
-                <label class="loanDetails" for="notes-loan-go">Note per il destinatario prestito</label>
-                <textarea class="loanDetails" id="notes-loan-go" name="notes"></textarea>
 
-                <label class="loanDetails" for="notes-loan-back">Note per chi gestisce la restituzione</label>
-                <textarea class="loanDetails" id="notes-loan-back" name="notes"></textarea>
-
-                <label class="loanDetails" for="photo-loan-back">Immagini di dettaglio per la consegna</label>
-                <input class="loanDetails" type="file" id="photo-loan-back" name="photo">
+                <label class="loanDetails" for="docs-loan-back">Ulteriore ocumentazione</label>
+                <input class="loanDetails" type="file" id="docs-loan-back" name="docs">
 
 
                 <button class="submit" type="button">Conferma</button>

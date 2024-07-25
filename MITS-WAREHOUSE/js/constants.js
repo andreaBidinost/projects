@@ -1,4 +1,4 @@
-URL_LOGIN="server/mock/login.php"
+URL_LOGIN="server/login.php"
 URL_QUITSESSION="server/sessionQuit.php"
 URL_GET_LOAN_RESPONSIBLES="server/mock/getResponsibles.php"
 URL_INSERT_NEW_PRODUCT="server/mock/insertNewProduct.php"
@@ -8,3 +8,11 @@ URL_GET_RESPONSIBLES="server/mock/getResponsibles.php"
 FROM_CODE_TO_DESCRIPTION_URL="server/mock/code2description.php"
 SEND_CONFIRM_LOAN_EMAIL="server/mock/sendConfirmLoanEmail.php"
 LOAN_CONFIRM_WATCHER="server/mock/loanConfirmWatcher.php"
+URL_LOAN_HISTORY="server/mock/getLoanHistory.php"
+URL_GET_LOAN_DATA="server/mock/getLoanData.php"
+URL_CLOSE_LOAN="server/mock/closeLoan.php"
+URL_GET_PRODUCT_PDF="server/mock/getReturnPdf.php"
+
+URL_GET_USER_ROLES="server/get_roles.php"
+
+URL_GET_USERS_DETAILS="server/get_users.php"

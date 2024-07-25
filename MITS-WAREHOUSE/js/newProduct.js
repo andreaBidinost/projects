@@ -41,9 +41,7 @@ function submitData() {
   var responsible = $('#responsible').val();
   var available_loan = $('#available-loan').val();
   
-  var notes_loan_go = $('#notes-loan-go').val();
-  var notes_loan_back = $('#notes-loan-back').val();
-  var photo_loan_back = $('#photo-loan-back').val();
+  var docs_loan_back = $('#docs-loan-back').val();
 
   
 
@@ -55,17 +53,13 @@ function submitData() {
   formData.append('notes', notes);
   formData.append('responsible', responsible);
   formData.append('available-loan', available_loan);
-  
-  formData.append('notes-loan-go', notes_loan_go);
-  
-  formData.append('notes-loan-back', notes_loan_back);
 
   for (var i = 0; i < photos.length; i++) {
-    formData.append('photos[]', photos[i]); // Usa 'photo[]' per gestire più file
+    formData.append('photos[]', photos[i]); 
   }
 
-  for (var i = 0; i < photo_loan_back.length; i++) {
-    formData.append('photos-loan-back[]', photo_loan_back[i]); // Usa 'photo[]' per gestire più file
+  for (var i = 0; i < docs_loan_back.length; i++) {
+    formData.append(' docs-loan-back[]',  docs_loan_back[i]); 
   }
 
   $.ajax({

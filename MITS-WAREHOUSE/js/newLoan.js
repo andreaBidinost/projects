@@ -51,7 +51,6 @@ function confirmSelByCode() {
 
 function onScanSuccess(decodedText, decodedResult) {
     // Handle on success condition with the decoded text or result.
-
     findDescriptionFromCode(decodedText)
     html5QrcodeScanner.clear()
     $('#productModal').hide()
@@ -218,7 +217,9 @@ function addObject() {
     updateFieldsForNewObject();
 }
 
+
 function saveNewLoan() {
+    showLoadingSpinner()
     if (productList.length == 0) {
         addProductToLoanList()
     }
@@ -237,6 +238,7 @@ function proceedWithUserConfirmation(loanData) {
     $.post(SEND_CONFIRM_LOAN_EMAIL,
         loanData,
         (response) => {
+            hideLoadingSpinner()
             response = JSON.parse(response)
             if (response.status=="success") {
                 openConfirmLoanModal(response.borrowerMail, response.newLoanId)
@@ -248,7 +250,7 @@ function proceedWithUserConfirmation(loanData) {
 }
 
 function openConfirmLoanModal(mail, loanId) {
-    $("#borrowermail").text(mail)
+    $("#borrowerMail").text(mail)
     $("#confirmTimer").text(maxConfirmTimer)
 
     $(".confirmMsg").hide()
@@ -256,7 +258,7 @@ function openConfirmLoanModal(mail, loanId) {
     $("#confirmLoanModal").show()
 
     startConfirmCountdown()
-    //startConfirmationWatcher(loanId)
+    startConfirmationWatcher(loanId)
 }
 
 function startConfirmCountdown() {

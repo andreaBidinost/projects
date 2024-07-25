@@ -15,7 +15,7 @@ function warehousePage(){
 }
 
 function clientPage(){
-    window.location.href="clientManager.php";
+    window.location.href="users.php";
 }
 
 function loanPage(){

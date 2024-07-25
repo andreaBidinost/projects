@@ -1,19 +1,21 @@
 <?php
 session_start();
 
-if (isset($_SESSION["userId"]) && $_SESSION["userId"]){
-  header("Location: /dashboard.php");
+if (isset($_SESSION["userId"]) && $_SESSION["userId"]) {
+  header("Location: ./dashboard.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.bmp">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.bmp">
   <title>MITS-WAREHOUSE Login</title>
   <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
   <div class="container">
     <img src="img/logoITS.png" alt="Logo" class="logo">
@@ -31,7 +33,9 @@ if (isset($_SESSION["userId"]) && $_SESSION["userId"]){
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./js/constants.js"> </script> 
+  <script src="./js/constants.js"> </script>
+  <script src="./js/mitsAlert.js"> </script>
   <script src="./js/index.js"> </script>
 </body>
+
 </html>
